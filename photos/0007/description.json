@@ -1,0 +1,11 @@
+{
+    "url": "https://images.pexels.com/photos/3757957/pexels-photo-3757957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "image": "ppexels.jpeg",
+    "tags": [ "product", "treadmill" ],
+    "testing": "",
+    "regression": false,
+    "license": "pexels",
+    "license_url": "https://www.pexels.com/license/",
+    "dimensions": [ 2250, 1500 ],
+    "bytes": 182818
+}

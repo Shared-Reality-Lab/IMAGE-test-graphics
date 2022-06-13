@@ -1,0 +1,11 @@
+{
+    "url": "https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "image": "mountain.jpeg",
+    "tags": [ "mountain", "outdoor", "scenery" ],
+    "testing": "",
+    "regression": false,
+    "license": "pexels",
+    "license_url": "https://www.pexels.com/photo/landscape-photography-of-snowy-mountain-1366919/",
+    "dimensions": [ 1000, 1500 ],
+    "bytes": 267070
+}

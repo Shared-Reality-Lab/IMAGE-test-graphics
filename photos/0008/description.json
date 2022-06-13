@@ -1,0 +1,11 @@
+{
+    "url": "https://images.pexels.com/photos/5726809/pexels-photo-5726809.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "image": "lab.jpeg",
+    "tags": [ "indoor", "lab" ],
+    "testing": "",
+    "regression": false,
+    "license": "pexels",
+    "license_url": "https://www.pexels.com/photo/a-man-and-a-woman-looking-at-the-test-tubes-5726809/",
+    "dimensions": [2520, 1418],
+    "bytes": 323718
+}

@@ -1,0 +1,11 @@
+{
+    "url": "https://images.pexels.com/photos/866021/pexels-photo-866021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "image": "gym.webp",
+    "tags": [ "indoor", "gym", "fitness" ],
+    "testing": "",
+    "regression": false,
+    "license": "pexels",
+    "license_url": "https://www.pexels.com/photo/group-of-woman-in-yoga-class-866021/",
+    "dimensions": [ 2288, 1500 ],
+    "bytes": 173162
+}
