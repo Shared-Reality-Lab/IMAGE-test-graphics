@@ -190,9 +190,9 @@ for item in jsons:
     jsoninput["renderers"] = [ "ca.mcgill.a11y.image.renderer.Text", "ca.mcgill.a11y.image.renderer.SimpleAudio", "ca.mcgill.a11y.image.renderer.SegmentAudio" ]
     jsoninput["preprocessors"] = {}
    
-    preprocessor_output = requests.post(url=server, json = json.dumps(jsoninput))
+    #preprocessor_output = requests.post(url=server, json = json.dumps(jsoninput))
    
-    print(preprocessor_output)
+    #print(preprocessor_output)
 
     jsondict["preprocessors"] = ""#preprocessor_output
     #print(server)
