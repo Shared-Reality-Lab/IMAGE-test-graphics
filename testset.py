@@ -17,8 +17,8 @@ import mimetypes
 # -t followed by a comma or space seperated list of tags
 # -n followed by the directory number of the graphic(s) (eg. 6, 0006, 06, etc) space seperated list
 # -s followed by u, unicorn, p, pegasus to specify the server we'd run graphic on
-# -min for the minimum size in bytes
-# -max for maximum size in bytes
+# --minBytes for the minimum size in bytes
+# --maxBytes for maximum size in bytes
 # -r followed by true or false, or t or f
 
 #filters for things like min size, number, regression and tags work on an AND basis so all the filter/requirements must be met
@@ -38,8 +38,8 @@ import mimetypes
 parser = argparse.ArgumentParser()
 
 parser.add_argument("-n", type=int, nargs='+')
-parser.add_argument("--min", type=int)
-parser.add_argument("--max", type=int)
+parser.add_argument("--min_bytes", type=int)
+parser.add_argument("--max_bytes", type=int)
 parser.add_argument("-t", nargs='+')
 
 parser.add_argument("-s")
@@ -48,8 +48,8 @@ parser.add_argument("-r")
 args = parser.parse_args()
 
 #default filters
-max_size = -1
-min_size = -1
+max_bytes = -1
+min_bytes = -1
 tags_needed = []
 graphics = []
 server = ""
@@ -67,6 +67,7 @@ if args.s:
     elif answer in ["p", "pegasus"]:
         server = "https://image.a11y.mcgill.ca/render/preprocess"
     else:
+        #TODO: allow manually entering an entire URL for an arbitrary server
         assert False, "invalid server"
 else:
     server = "https://unicorn.cim.mcgill.ca/image/render/preprocess"
@@ -94,11 +95,11 @@ if args.r:
     else:
         assert False, "invalid regression"
 
-#assigning min and max size
-if args.min:
-    min_size = args.min
-if args.max:
-    max_size = args.max
+#assigning min and max size in bytes
+if args.min_bytes:
+    min_bytes = args.min_bytes
+if args.max_bytes:
+    max_bytes = args.max_bytes
 
 #iterating through files in directory, checking if the filter is relevant, and then checking the 
 #description json to verify that the photo meets the requirements
@@ -131,11 +132,11 @@ for file in os.listdir("photos"):
                 if not regression:
                      if data["regression"] is True:
                             isIncluded = False
-            if max_size > 0:
-                if data["bytes"] > max_size:
+            if max_bytes > 0:
+                if data["bytes"] > max_bytes:
                     isIncluded = False
-            if min_size > 0:
-                if data["bytes"] < min_size:
+            if min_bytes > 0:
+                if data["bytes"] < min_bytes:
                     isIncluded = False
             
             if isIncluded:
