@@ -1,0 +1,11 @@
+{
+    "url":"https://images.pexels.com/photos/1154189/pexels-photo-1154189.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "image": "clubbing.webp",
+    "tags": ["indoor", "dancing"],
+    "testing": "",
+    "regression": false,
+    "license": "pexels",
+    "license_url": "https://www.pexels.com/photo/crowd-dances-in-blue-painted-enclosure-1154189/",
+    "dimensions": [2442, 1500],
+    "bytes": 252752
+}

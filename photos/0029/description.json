@@ -1,0 +1,11 @@
+{
+    "url":"https://images.pexels.com/photos/5528990/pexels-photo-5528990.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "image": "apple.jpg",
+    "tags": ["outdoor", "field", "farm", "apple"],
+    "testing": "",
+    "regression": false,
+    "license": "pexels",
+    "license_url": "https://www.pexels.com/photo/gardener-harvesting-apples-with-daughter-in-garden-5528990/",
+    "dimensions": [4000,6000],
+    "bytes": 4832047
+}

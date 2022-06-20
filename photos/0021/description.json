@@ -1,0 +1,11 @@
+{
+    "url":"https://images.pexels.com/photos/11259483/pexels-photo-11259483.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "image": "mirror.jpeg",
+    "tags": ["fashion"],
+    "testing": "",
+    "regression": false,
+    "license": "pexels",
+    "license_url": "https://www.pexels.com/photo/a-woman-in-white-long-sleeves-standing-in-front-of-the-mirror-while-holding-flowers-and-mobile-phone-11259483/",
+    "dimensions": [844,1500],
+    "bytes": 62703
+}

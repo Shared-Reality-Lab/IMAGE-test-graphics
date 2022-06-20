@@ -1,0 +1,11 @@
+{
+    "url":"https://images.pexels.com/photos/2959595/pexels-photo-2959595.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "image": "decor.jpeg",
+    "tags": ["indoor", "decor", "bed"],
+    "testing": "",
+    "regression": false,
+    "license": "pexels",
+    "license_url": "https://www.pexels.com/photo/green-indoor-plants-decorative-2959595/",
+    "dimensions": [1000, 668],
+    "bytes": 108078
+}

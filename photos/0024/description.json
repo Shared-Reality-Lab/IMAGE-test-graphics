@@ -1,0 +1,11 @@
+{
+    "url":"https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "image": "barpexels.jpeg",
+    "tags": ["indoor", "bar"],
+    "testing": "",
+    "regression": false,
+    "license": "pexels",
+    "license_url": "https://www.pexels.com/photo/group-of-people-gathering-inside-bar-1058277/",
+    "dimensions": [2368, 1500],
+    "bytes": 500199
+}

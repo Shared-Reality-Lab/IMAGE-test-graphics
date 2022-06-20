@@ -1,0 +1,11 @@
+{
+    "url":"https://images.unsplash.com/photo-1575279099331-ab1894fc7b97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=333&q=80",
+    "image": "mall.jpg",
+    "tags": ["indoor", "mall"],
+    "testing": "",
+    "regression": false,
+    "license": "unsplash",
+    "license_url": "https://unsplash.com/photos/RUA9K_rEzq4",
+    "dimensions": [640, 1116],
+    "bytes": 211116
+}

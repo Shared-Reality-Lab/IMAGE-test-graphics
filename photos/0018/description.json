@@ -1,0 +1,11 @@
+{
+    "url":"https://images.pexels.com/photos/8573839/pexels-photo-8573839.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "image": "fruit.jpeg",
+    "tags": ["fruit", "object", "bowl"],
+    "testing": "",
+    "regression": false,
+    "license": "pexels",
+    "license_url": "https://www.pexels.com/photo/strawberries-and-cherries-in-white-ceramic-bowl-on-newspaper-8573839/",
+    "dimensions": [1880, 1249],
+    "bytes": 345787
+}

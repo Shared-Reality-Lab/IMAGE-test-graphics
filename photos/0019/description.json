@@ -1,0 +1,11 @@
+{
+    "url":"https://images.pexels.com/photos/1359036/pexels-photo-1359036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "image": "dog.webp",
+    "tags": ["animal", "dog", "blanket"],
+    "testing": "",
+    "regression": false,
+    "license": "pexels",
+    "license_url": "https://www.pexels.com/photo/puppy-covered-with-blanket-1359036/",
+    "dimensions": [2250, 1500],
+    "bytes": 249014
+}
