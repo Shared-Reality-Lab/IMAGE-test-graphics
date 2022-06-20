@@ -29,7 +29,7 @@ args = parser.parse_args()
 timestamps= args.t
 outputfiles = []
 for time in timestamps:
-        outputfiles.append("output"+time+".json")
+        outputfiles.append("output_"+time+".json")
 
 file_name=[]
 outputs=["a","b"]
@@ -71,6 +71,8 @@ for file1 in file_name:
     data1 = json.load(k)
     preprocessors[outputs[0]] = data0["preprocessors"]
     preprocessors[outputs[1]] = data1["preprocessors"]
+    #TODO:  rather than just printing both outputs, better to use the unix `diff`
+    #        command to hilight the actual differences
     print("for "+file1+":")
     if (preprocessors[outputs[0]] is not (preprocessors[outputs[1]])):
         print("difference found")
