@@ -37,13 +37,13 @@ import mimetypes
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-n", type=int, nargs='+')
-parser.add_argument("--min_bytes", type=int)
-parser.add_argument("--max_bytes", type=int)
-parser.add_argument("-t", nargs='+')
+parser.add_argument("-n", type=int, nargs='+', help = "the directory number of the graphic(s) (eg. 6, 0006, 06, etc) space seperated list")
+parser.add_argument("--min_bytes", type=int, help = "minimum size of graphics in bytes")
+parser.add_argument("--max_bytes", type=int, help = "maximum size of graphics in bytes")
+parser.add_argument("-t", nargs='+', help = "comma seperated list of tags")
 
-parser.add_argument("-s")
-parser.add_argument("-r")
+parser.add_argument("-s", help = "url of server")
+parser.add_argument("-r", help = "boolean of whether graphics is identified as regression")
 
 args = parser.parse_args()
 
@@ -67,8 +67,7 @@ if args.s:
     elif answer in ["p", "pegasus"]:
         server = "https://image.a11y.mcgill.ca/render/preprocess"
     else:
-        #TODO: allow manually entering an entire URL for an arbitrary server
-        assert False, "invalid server"
+        server = answer
 else:
     server = "https://unicorn.cim.mcgill.ca/image/render/preprocess"
 
