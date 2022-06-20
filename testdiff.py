@@ -22,8 +22,8 @@ import requests
 #creating parsers for arguments
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-n", type=int, nargs=1)
-parser.add_argument("-t", required=True, nargs=2)
+parser.add_argument("-n", type=int, nargs=1, help ="-t followed by two time stamps (m_d_Y_H_M_S)")
+parser.add_argument("-t", required=True, nargs=2, help = "(optional) -n followed by the integer number of the directory where the graphic is stored. If not provided, then compares all graphics that have the 2 time stamps")
 args = parser.parse_args()
 
 timestamps= args.t
