@@ -194,7 +194,7 @@ for item in jsons:
    
     #print(preprocessor_output)
 
-    jsondict["preprocessors"] = preprocessor_output
+    jsondict["preprocessors"] = preprocessor_output.text
     #print(server)
     #print(preprocessor_output.json())
     #print(requests.status_codes)
