@@ -157,7 +157,7 @@ for item in jsons:
     jsondict["image"] = item["image"]
     
     date_time = datetime.now().strftime("%m_%d_%Y_%H_%M_%S")
-    file_name = "output"+date_time+".json"
+    file_name = "output_"+date_time+".json"
     jsondict["time"] = date_time
 
     photo = item["image"]
@@ -181,7 +181,7 @@ for item in jsons:
 
     seconds = today.timestamp()
     jsoninput["timestamp"] = int(seconds)
-    jsoninput["image"] = "data:{};base64,{}".format(mime_type[0], b64_string.decode())
+    jsoninput["graphic"] = "data:{};base64,{}".format(mime_type[0], b64_string.decode())
    
     jsoninput["dimensions"]=item["dimensions"]
     jsoninput["context"]=""
@@ -190,11 +190,11 @@ for item in jsons:
     jsoninput["renderers"] = [ "ca.mcgill.a11y.image.renderer.Text", "ca.mcgill.a11y.image.renderer.SimpleAudio", "ca.mcgill.a11y.image.renderer.SegmentAudio" ]
     jsoninput["preprocessors"] = {}
    
-    #preprocessor_output = requests.post(url=server, json = json.dumps(jsoninput))
+    preprocessor_output = requests.post(url=server, json = jsoninput)
    
     #print(preprocessor_output)
 
-    jsondict["preprocessors"] = ""#preprocessor_output
+    jsondict["preprocessors"] = preprocessor_output
     #print(server)
     #print(preprocessor_output.json())
     #print(requests.status_codes)
