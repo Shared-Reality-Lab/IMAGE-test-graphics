@@ -147,6 +147,7 @@ for file in os.listdir("photos"):
 #print(len(jsons))
 
 #creating the output json
+date_time = datetime.now().strftime("%m_%d_%Y_%H_%M_%S")
 for item in jsons:
     path = item["path"]
 
@@ -156,7 +157,7 @@ for item in jsons:
     jsondict["url"] = item["url"]
     jsondict["image"] = item["image"]
     
-    date_time = datetime.now().strftime("%m_%d_%Y_%H_%M_%S")
+    
     file_name = "output_"+date_time+".json"
     jsondict["time"] = date_time
 

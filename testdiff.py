@@ -76,9 +76,9 @@ for file1 in file_name:
     print("for "+file1+":")
     if (preprocessors[outputs[0]] is not (preprocessors[outputs[1]])):
         print("difference found")
-        print("preprocessor output for " + outputs[0] + " is")
-        print(preprocessors[outputfiles[0]])
-        print("preprocessor output for " + outputs[1] + " is")
-        print(preprocessors[outputs[1]])
+      #  print("preprocessor output for " + outputs[0] + " is")
+       # print(preprocessors[outputfiles[0]])
+      #  print("preprocessor output for " + outputs[1] + " is")
+      #  print(preprocessors[outputs[1]])
     else:
         print("same preprocessor outputs")
