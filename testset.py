@@ -13,6 +13,10 @@ import uuid
 from os.path import isfile, join
 import mimetypes
 from os import listdir
+import collections
+import sqlite3 as lite
+import sys
+import re
 #if no arguments then the entire testset is included
 
 # arguments:
@@ -195,8 +199,9 @@ for item in jsons:
     preprocessor_output = requests.post(url=server, json = jsoninput)
    
     #print(preprocessor_output)
+    pattern = ".*" + "ca.mcgill.a11y.image.preprocessor.contentCategoriser"
 
-    jsondict["preprocessors"] = preprocessor_output.text
+    jsondict["preprocessors"] = re.sub(pattern, '{"ca.mcgill.a11y.image.preprocessor.contentCategoriser"',(preprocessor_output.text))
     
     #print(server)
     #print(preprocessor_output.json())
@@ -204,13 +209,18 @@ for item in jsons:
     h = os.path.join(path, file_name)
 
     jsondict["handlers"] = ""
-    
-    with open(h,'x') as jsonFile:
-        #jsonFile.write('\n')
-        json.dump(jsondict,jsonFile, indent=2)
-       # for items in jsondict:
-          #  json.dump(items, jsonFile)
-           # jsonFile.write('\n')
+
+
+    j = json.dumps(jsondict, indent=2)
+    f = open(h, 'x')
+    print(j, file=f)
+
+    f.close()
+
+   # with open(h,'x') as jsonFile:
+        
+      #  json.dump(jsondict,jsonFile, indent=2,escape_)
+       
     obj_no = int(item["path"].replace("photos/",""))
 
     onlyfiles = [str(f) for f in listdir(item["path"]) if isfile(join(item["path"], f))]
