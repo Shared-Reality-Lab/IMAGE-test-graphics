@@ -10,7 +10,9 @@ import requests
 #from PIL import Image
 import base64
 import uuid
+from os.path import isfile, join
 import mimetypes
+from os import listdir
 #if no arguments then the entire testset is included
 
 # arguments:
@@ -41,7 +43,7 @@ parser.add_argument("-n", type=int, nargs='+', help = "the directory number of t
 parser.add_argument("--min_bytes", type=int, help = "minimum size of graphics in bytes")
 parser.add_argument("--max_bytes", type=int, help = "maximum size of graphics in bytes")
 parser.add_argument("-t", nargs='+', help = "comma seperated list of tags")
-
+parser.add_argument("-d", help = "if included, runs a testdiff.py on each of the files with current and most recent time stamp", action = "store_true")
 parser.add_argument("-s", help = "url of server")
 parser.add_argument("-r", help = "boolean of whether graphics is identified as regression")
 
@@ -145,9 +147,8 @@ for file in os.listdir("photos"):
 
 
 #print(len(jsons))
-
-#creating the output json
 date_time = datetime.now().strftime("%m_%d_%Y_%H_%M_%S")
+#creating the output json
 for item in jsons:
     path = item["path"]
 
@@ -196,6 +197,7 @@ for item in jsons:
     #print(preprocessor_output)
 
     jsondict["preprocessors"] = preprocessor_output.text
+    
     #print(server)
     #print(preprocessor_output.json())
     #print(requests.status_codes)
@@ -206,12 +208,39 @@ for item in jsons:
     with open(h,'x') as jsonFile:
         #jsonFile.write('\n')
         json.dump(jsondict,jsonFile, indent=2)
-      
-      
-      
-      
        # for items in jsondict:
           #  json.dump(items, jsonFile)
            # jsonFile.write('\n')
+    obj_no = int(item["path"].replace("photos/",""))
+
+    onlyfiles = [str(f) for f in listdir(item["path"]) if isfile(join(item["path"], f))]
+  
     
+    onlyfiles.remove("description.json")
+    for p in onlyfiles:
+        if not p.endswith(".json"):
+            onlyfiles.remove(p)
+    onlyfiles.sort(reverse = True)
+    true = []
+    for t in onlyfiles:
+        n = t.replace("output_", "")
+        m = n.replace(".json", "")
+        true.append(m)
+    
+    if args.d and len(true) >  1:
+        os.system("./testdiff.py -n {} -t {} {}".format(obj_no, true[0], true[1]))
+
+    
+  #  e = pathlib.Path(h)
+
+   # f = open(e, "r")
+  #  object = json.load(f)
+
+ #   f.close()
+  #  object["preprocessors"] = object["preprocessors"].replace("\\","")
+  #  f = open(e, "w")
+  #  object = json.dump(object,f)
+
+   # f.close()
+
 

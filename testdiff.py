@@ -26,6 +26,10 @@ parser.add_argument("-n", type=int, nargs=1, help ="-t followed by two time stam
 parser.add_argument("-t", required=True, nargs=2, help = "(optional) -n followed by the integer number of the directory where the graphic is stored. If not provided, then compares all graphics that have the 2 time stamps")
 args = parser.parse_args()
 
+if args.t[0] == args.t[1]:
+    assert False, "please enter two different time stamps to compare"
+ 
+
 timestamps= args.t
 outputfiles = []
 for time in timestamps:
