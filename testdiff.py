@@ -7,6 +7,8 @@ import pathlib
 import argparse
 from datetime import datetime
 import requests
+import difflib
+#from jsoncomparision import Compare, NO_DIFF
 #from PIL import Image
 
 #can easily modify this to compare more than 2 time stamps in a directory, except what would we be comparing?
@@ -20,16 +22,20 @@ import requests
 # if all arguments aren't present, it returns an error
 
 #creating parsers for arguments
+
+
+
+#TODO add keys to exclude compare
 parser = argparse.ArgumentParser()
 
 parser.add_argument("-n", type=int, nargs=1, help ="-t followed by two time stamps (m_d_Y_H_M_S)")
 parser.add_argument("-t", required=True, nargs=2, help = "(optional) -n followed by the integer number of the directory where the graphic is stored. If not provided, then compares all graphics that have the 2 time stamps")
+
 args = parser.parse_args()
 
 if args.t[0] == args.t[1]:
     assert False, "please enter two different time stamps to compare"
- 
-
+    
 timestamps= args.t
 outputfiles = []
 for time in timestamps:
@@ -73,16 +79,22 @@ for file1 in file_name:
     k = open(outputs[1])
     data0 = json.load(j)
     data1 = json.load(k)
-    preprocessors[outputs[0]] = data0["preprocessors"]
-    preprocessors[outputs[1]] = data1["preprocessors"]
-    #TODO:  rather than just printing both outputs, better to use the unix `diff`
-    #        command to hilight the actual differences
+    data0.pop("time")
+    data1.pop("time")
+
+    j = json.dumps(data0)
+    f = open("1.json", 'x')
+    print(j, file=f)
+
+    k = json.dumps(data1)
+    l = open("2.json", 'x')
+    print(k, file=l)
+
     print("for "+file1+":")
-    if (preprocessors[outputs[0]] is not (preprocessors[outputs[1]])):
-        print("difference found")
-      #  print("preprocessor output for " + outputs[0] + " is")
-       # print(preprocessors[outputfiles[0]])
-      #  print("preprocessor output for " + outputs[1] + " is")
-      #  print(preprocessors[outputs[1]])
-    else:
+
+    os.system("diff 1.json 2.json")
+    os.remove("1.json")
+    os.remove("2.json")
+
+    if data0 == data1:
         print("same preprocessor outputs")

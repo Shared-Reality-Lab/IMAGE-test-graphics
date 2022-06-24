@@ -211,7 +211,7 @@ for item in jsons:
     jsondict["handlers"] = ""
 
 
-    j = json.dumps(jsondict, indent=2)
+    j = json.dumps(jsondict, indent=2, ensure_ascii=False)
     f = open(h, 'x')
     print(j, file=f)
 
