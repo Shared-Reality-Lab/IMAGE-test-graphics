@@ -1,7 +1,7 @@
 {
     "url": "https://images.pexels.com/photos/5726809/pexels-photo-5726809.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     "image": "lab.jpeg",
-    "tags": [ "indoor", "lab" ],
+    "tags": [ "indoor", "lab" , "daily"],
     "testing": "",
     "regression": false,
     "license": "pexels",
