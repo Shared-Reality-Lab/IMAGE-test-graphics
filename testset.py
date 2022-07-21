@@ -50,6 +50,7 @@ parser.add_argument("-t", nargs='+', help = "comma seperated list of tags")
 parser.add_argument("-d", help = "if included, runs a testdiff.py on each of the files with current and most recent time stamp", action = "store_true")
 parser.add_argument("-s", help = "url of server")
 parser.add_argument("-r", help = "boolean of whether graphics is identified as regression")
+parser.add_argument("--daily", action = "store_true", help = "include for daily tests that are run through cron job")
 
 args = parser.parse_args()
 
@@ -162,8 +163,10 @@ for item in jsons:
     jsondict["url"] = item["url"]
     jsondict["image"] = item["image"]
     
-    
-    file_name = "output_"+date_time+".json"
+    if args.daily:
+        file_name = "output_daily_"+date_time+".json"
+    else:
+        file_name = "output_"+date_time+".json"
     jsondict["time"] = date_time
 
     photo = item["image"]
@@ -230,15 +233,25 @@ for item in jsons:
     for p in onlyfiles:
         if not p.endswith(".json"):
             onlyfiles.remove(p)
+    for p in onlyfiles:
+        if args.daily:
+            if not "daily" in p:
+                onlyfiles.remove(p)
+        if not args.daily:
+            if "daily" in p:
+                onlyfiles.remove(p)
     onlyfiles.sort(reverse = True)
     true = []
     for t in onlyfiles:
-        n = t.replace("output_", "")
+        if args.daily:
+            n = t.replace("output_daily_", "")
+        else:
+            n = t.replace("output_", "")
         m = n.replace(".json", "")
         true.append(m)
     
     if args.d and len(true) >  1:
-        os.system("./testdiff.py -n {} -t {} {}".format(obj_no, true[0], true[1]))
+        os.system("./testdiff.py --daily -n {} -t {} {}".format(obj_no, true[0], true[1]))
 
     
   #  e = pathlib.Path(h)

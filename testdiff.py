@@ -30,7 +30,7 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument("-n", type=int, nargs=1, help ="-t followed by two time stamps (m_d_Y_H_M_S)")
 parser.add_argument("-t", required=True, nargs=2, help = "(optional) -n followed by the integer number of the directory where the graphic is stored. If not provided, then compares all graphics that have the 2 time stamps")
-
+parser.add_argument("--daily", action = "store_true", help = "only compares files that were run through daily cron job testing")
 args = parser.parse_args()
 
 if args.t[0] == args.t[1]:
@@ -39,6 +39,9 @@ if args.t[0] == args.t[1]:
 timestamps= args.t
 outputfiles = []
 for time in timestamps:
+    if args.daily:
+        outputfiles.append("output_daily_"+time+".json")
+    else:
         outputfiles.append("output_"+time+".json")
 
 file_name=[]
