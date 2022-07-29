@@ -163,12 +163,12 @@ for item in jsons:
     jsondict["url"] = item["url"]
     jsondict["image"] = item["image"]
     
-    if args.daily:
-        file_name = "output_daily_"+date_time+".json"
-    else:
-        file_name = "output_"+date_time+".json"
+    file_name = "output_"+date_time+".json"
     jsondict["time"] = date_time
-
+    if args.daily:
+        jsondict["daily"] = True
+    else:
+        jsondict["daily"] = False
     photo = item["image"]
     photoname = os.path.join(path, photo)
     print (photoname)
@@ -226,32 +226,38 @@ for item in jsons:
        
     obj_no = int(item["path"].replace("photos/",""))
 
-    onlyfiles = [str(f) for f in listdir(item["path"]) if isfile(join(item["path"], f))]
+    dirfiles = [str(f) for f in listdir(item["path"]) if isfile(join(item["path"], f))]
+    onlyfiles = []
   
-    
-    onlyfiles.remove("description.json")
-    for p in onlyfiles:
-        if not p.endswith(".json"):
-            onlyfiles.remove(p)
-    for p in onlyfiles:
+    for dirfile in dirfiles:
+        if "output" in dirfile:
+            onlyfiles.append(dirfile)
+
+
+    for q in onlyfiles:
         if args.daily:
-            if not "daily" in p:
-                onlyfiles.remove(p)
-        if not args.daily:
-            if "daily" in p:
-                onlyfiles.remove(p)
+            h = item["path"] + "/" + q
+            
+            hpath = pathlib.Path(h)
+            hfile = open(hpath)
+            hjson = json.load(hfile)
+            
+            if "daily" not in hjson:
+                onlyfiles.remove(q)
+            else:
+                
+                if hjson["daily"] is False:
+                    onlyfiles.remove(q)
+        
     onlyfiles.sort(reverse = True)
     true = []
     for t in onlyfiles:
-        if args.daily:
-            n = t.replace("output_daily_", "")
-        else:
-            n = t.replace("output_", "")
+        n = t.replace("output_", "")
         m = n.replace(".json", "")
         true.append(m)
     
     if args.d and len(true) >  1:
-        os.system("./testdiff.py --daily -n {} -t {} {}".format(obj_no, true[0], true[1]))
+        os.system("./testdiff.py -n {} -t {} {}".format(obj_no, true[0], true[1]))
 
     
   #  e = pathlib.Path(h)

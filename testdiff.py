@@ -30,7 +30,8 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument("-n", type=int, nargs=1, help ="-t followed by two time stamps (m_d_Y_H_M_S)")
 parser.add_argument("-t", required=True, nargs=2, help = "(optional) -n followed by the integer number of the directory where the graphic is stored. If not provided, then compares all graphics that have the 2 time stamps")
-parser.add_argument("--daily", action = "store_true", help = "only compares files that were run through daily cron job testing")
+parser.add_argument("--preprocessor", help = "followed by a list of the preprocessors for which we want to see the diffs, everything else will be excluded")
+
 args = parser.parse_args()
 
 if args.t[0] == args.t[1]:
@@ -39,10 +40,7 @@ if args.t[0] == args.t[1]:
 timestamps= args.t
 outputfiles = []
 for time in timestamps:
-    if args.daily:
-        outputfiles.append("output_daily_"+time+".json")
-    else:
-        outputfiles.append("output_"+time+".json")
+    outputfiles.append("output_"+time+".json")
 
 file_name=[]
 outputs=["a","b"]
@@ -59,6 +57,7 @@ if args.n:
     outputs[1]=os.path.join(f,outputfiles[1])
     if not (os.path.isfile(outputs[0]) and os.path.isfile(outputs[1])):
         assert False, "both timestamps do not exist in the directory"
+
 
 else:
     
@@ -85,19 +84,40 @@ for file1 in file_name:
     data0.pop("time")
     data1.pop("time")
 
-    j = json.dumps(data0)
-    f = open("1.json", 'x')
-    print(j, file=f)
+    pre1 = json.loads(((data0["preprocessors"]).replace("contentCategoriser\"", "contentCategoriser"))[:-1])
+    pre2 = json.loads(((data1["preprocessors"]).replace("contentCategoriser\"", "contentCategoriser"))[:-1])
 
-    k = json.dumps(data1)
-    l = open("2.json", 'x')
-    print(k, file=l)
 
-    print("for "+file1+":")
+    for key in pre1:
+        if not pre1[key] == pre2[key]:
+            print(key)
+            print(pre1[key])
+            print(key)
+            print(pre2[key])
 
-    os.system("diff 1.json 2.json")
-    os.remove("1.json")
-    os.remove("2.json")
 
-    if data0 == data1:
-        print("same preprocessor outputs")
+
+
+
+
+   # if "daily" in data0:
+    #    data0.pop("daily")
+   # if "daily" in data1:
+   #     data1.pop("daily")
+
+ #   j = json.dumps(data0)
+  #  f = open("1.json", 'x')
+  #  print(j, file=f)
+
+ #   k = json.dumps(data1)
+ #   l = open("2.json", 'x')
+ #   print(k, file=l)
+
+ #   print("for "+file1+":")
+
+  #  os.system("diff 1.json 2.json")
+  #  os.remove("1.json")
+  #  os.remove("2.json")
+
+  #  if data0 == data1:
+   #     print("same preprocessor outputs")
