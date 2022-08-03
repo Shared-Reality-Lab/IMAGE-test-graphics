@@ -26,6 +26,10 @@ import difflib
 
 
 #TODO add keys to exclude compare
+
+
+changes = False
+
 parser = argparse.ArgumentParser()
 
 parser.add_argument("-n", type=int, nargs=1, help ="-t followed by two time stamps (m_d_Y_H_M_S)")
@@ -94,11 +98,10 @@ for file1 in file_name:
             print(pre1[key])
             print(key)
             print(pre2[key])
+            changes = True
 
-
-
-
-
+if changes:
+    print("Changes occured")
 
    # if "daily" in data0:
     #    data0.pop("daily")
