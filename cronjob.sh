@@ -10,6 +10,6 @@ sub="Changes"
 if [[ $var == *"$sub"* ]];
 then
     echo "Changes occured"
-    exit 133
+    
 
 fi
