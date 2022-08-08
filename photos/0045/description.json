@@ -1,0 +1,11 @@
+{
+    "url":"https://cdn.pixabay.com/photo/2021/08/06/04/17/landfill-6525291_1280.jpg",
+    "image": "landfill.jpg",
+    "tags": ["outdoor"],
+    "testing": "",
+    "regression": false,
+    "license": "pixabay",
+    "license_url": "https://pixabay.com/photos/landfill-waste-disposal-garbage-6525291/",
+    "dimensions": [1280, 852],
+    "bytes": 496394
+}

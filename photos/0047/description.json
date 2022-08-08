@@ -1,0 +1,11 @@
+{
+    "url":"https://images.pexels.com/photos/1827130/pexels-photo-1827130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "image": "room.jpeg",
+    "tags": ["indoor", "bedroom"],
+    "testing": "",
+    "regression": false,
+    "license": "pexes",
+    "license_url": "https://www.pexels.com/photo/room-filled-with-clothes-1827130/",
+    "dimensions": [2250, 1500],
+    "bytes": 280902
+}

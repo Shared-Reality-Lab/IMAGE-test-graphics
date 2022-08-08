@@ -1,0 +1,11 @@
+{
+    "url":"https://cdn.pixabay.com/photo/2016/09/12/21/58/earthquake-1665891_1280.jpg",
+    "image": "earthquake.jpg",
+    "tags": ["outdoor", "building", "news"],
+    "testing": "",
+    "regression": false,
+    "license": "pixabay",
+    "license_url": "https://pixabay.com/photos/earthquake-rubble-collapse-disaster-1665891/",
+    "dimensions": [1280, 851],
+    "bytes": 283947
+}

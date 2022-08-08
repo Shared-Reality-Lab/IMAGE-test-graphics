@@ -1,0 +1,11 @@
+{
+    "url":"https://images.pexels.com/photos/618491/pexels-photo-618491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "image": "rice.jpeg",
+    "tags": ["outdoor", "food"],
+    "testing": "",
+    "regression": false,
+    "license": "pexels",
+    "license_url": "https://www.pexels.com/photo/clear-glass-jars-with-assorted-foods-618491/",
+    "dimensions": [2331, 1500],
+    "bytes": 803055
+}

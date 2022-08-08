@@ -1,0 +1,11 @@
+{
+    "url":"https://cdn.pixabay.com/photo/2015/09/23/02/53/festival-952814_1280.jpg",
+    "image": "festival.jpg",
+    "tags": ["outdoor", "party", "festival"],
+    "testing": "",
+    "regression": false,
+    "license": "pixabay",
+    "license_url": "https://pixabay.com/photos/festival-party-bubbles-952814/",
+    "dimensions": [640, 480],
+    "bytes": 83162
+}

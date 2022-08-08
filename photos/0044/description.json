@@ -1,0 +1,11 @@
+{
+    "url":"https://images.unsplash.com/photo-1581782046583-d09f142bdd65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+    "image": "paint.jpg",
+    "tags": ["product", "paint"],
+    "testing": "",
+    "regression": false,
+    "license": "unsplash",
+    "license_url": "https://unsplash.com/photos/A8UaAWsFzRM",
+    "dimensions": [5184, 3456],
+    "bytes": 1828340
+}

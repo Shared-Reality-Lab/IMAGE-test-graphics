@@ -1,0 +1,11 @@
+{
+    "url":"https://images.unsplash.com/photo-1631692994170-3a4e809ec69a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    "image": "bookstore.jpg",
+    "tags": ["indoor", "bookstore", "books"],
+    "testing": "",
+    "regression": false,
+    "license": "unsplash",
+    "license_url": "https://unsplash.com/photos/a95OX2-V0p8",
+    "dimensions": [1920, 2880],
+    "bytes": 903932
+}

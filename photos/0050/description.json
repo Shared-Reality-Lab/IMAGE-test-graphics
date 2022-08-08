@@ -1,0 +1,11 @@
+{
+    "url":"https://images.pexels.com/photos/1085517/pexels-photo-1085517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "image": "selfie.jpeg",
+    "tags": ["outdoor", "woman"],
+    "testing": "",
+    "regression": false,
+    "license": "pexels",
+    "license_url": "https://www.pexels.com/photo/woman-taking-photo-of-herself-near-parked-vehicles-1085517/",
+    "dimensions": [2250, 1500],
+    "bytes": 273731
+}
