@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+
+  object-detection:
+    container_name: atp-object-detection-azure
+    image: object-detection-azure:latest
+    env_file:
+      - ./auditory-haptic-graphics-server/config/azure-api.env
+
