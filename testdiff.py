@@ -93,9 +93,10 @@ for file1 in file_name:
     data0.pop("time")
     data1.pop("time")
 
-    pre1 = json.loads(((data0["preprocessors"]).replace("contentCategoriser\"", "contentCategoriser"))[:-1])
-    pre2 = json.loads(((data1["preprocessors"]).replace("contentCategoriser\"", "contentCategoriser"))[:-1])
-
+  #  pre1 = json.loads(((data0["preprocessors"]).replace("contentCategoriser\"", "contentCategoriser"))[:-1])
+  #  pre2 = json.loads(((data1["preprocessors"]).replace("contentCategoriser\"", "contentCategoriser"))[:-1])
+    pre1 = data0["preprocessors"]
+    pre2 = data1["preprocessors"]
     if not args.preprocessor:
         for key in pre1:
             if not pre1[key] == pre2[key]:

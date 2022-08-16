@@ -7,7 +7,6 @@ import pathlib
 import argparse
 from datetime import datetime
 import requests
-#from PIL import Image
 import base64
 import uuid
 from os.path import isfile, join
@@ -30,9 +29,7 @@ import re
 #filters for things like min size, number, regression and tags work on an AND basis so all the filter/requirements must be met
 #the list of tags is on an OR basis, so at least one of the tags in the argument must be in the json
 
-# if no server specified, defaults to unicorn?
-
-# MUST have some argument, or returns error
+# if no server specified, defaults to unicorn
 
 
 # ask: call request to unicorn server would the server return preprocessor output?
@@ -70,13 +67,13 @@ jsons = []
 if args.s:
     answer = args.s.lower()
     if answer in ["u", "unicorn"]:
-        server = "https://unicorn.cim.mcgill.ca/image/render/preprocess"
+        server = "https://unicorn.cim.mcgill.ca/image/render"
     elif answer in ["p", "pegasus"]:
-        server = "https://image.a11y.mcgill.ca/render/preprocess"
+        server = "https://image.a11y.mcgill.ca/render"
     else:
         server = answer
 else:
-    server = "https://unicorn.cim.mcgill.ca/image/render/preprocess"
+    server = "https://unicorn.cim.mcgill.ca/image/render"
 
 #tags can be seperated by commas, spaces, or both
 if args.t:
@@ -198,17 +195,19 @@ for item in jsons:
     jsoninput["capabilities"] = []
     jsoninput["renderers"] = [ "ca.mcgill.a11y.image.renderer.Text", "ca.mcgill.a11y.image.renderer.SimpleAudio", "ca.mcgill.a11y.image.renderer.SegmentAudio" ]
     jsoninput["preprocessors"] = {}
-   
-    preprocessor_output = requests.post(url=server, json = jsoninput)
-   
-    #print(preprocessor_output)
-    pattern = ".*" + "ca.mcgill.a11y.image.preprocessor.contentCategoriser"
-
-    jsondict["preprocessors"] = re.sub(pattern, '{"ca.mcgill.a11y.image.preprocessor.contentCategoriser"',(preprocessor_output.text))
+    preserver = server + "/preprocess"
+    handlerserver = server + "/handler"
     
-    #print(server)
-    #print(preprocessor_output.json())
-    #print(requests.status_codes)
+    preprocessor_output = requests.post(url=preserver, json = jsoninput)
+   
+    
+    jsondict["preprocessors"] = (json.loads(preprocessor_output.text))["preprocessors"]
+  #  jsoninput["preprocessors"] = jsondict["preprocessors"]
+    
+
+   # handler_output = requests.post(url = handlerserver, json = jsoninput)
+  #  print(handler_output.text)
+
     h = os.path.join(path, file_name)
 
     jsondict["handlers"] = ""
@@ -220,9 +219,6 @@ for item in jsons:
 
     f.close()
 
-   # with open(h,'x') as jsonFile:
-        
-      #  json.dump(jsondict,jsonFile, indent=2,escape_)
        
     obj_no = int(item["path"].replace("photos/",""))
 
@@ -259,17 +255,6 @@ for item in jsons:
     if args.d and len(true) >  1:
         os.system("./testdiff.py -n {} -t {} {}".format(obj_no, true[0], true[1]))
 
-    
-  #  e = pathlib.Path(h)
 
-   # f = open(e, "r")
-  #  object = json.load(f)
-
- #   f.close()
-  #  object["preprocessors"] = object["preprocessors"].replace("\\","")
-  #  f = open(e, "w")
-  #  object = json.dump(object,f)
-
-   # f.close()
 
 
