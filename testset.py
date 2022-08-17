@@ -196,21 +196,22 @@ for item in jsons:
     jsoninput["renderers"] = [ "ca.mcgill.a11y.image.renderer.Text", "ca.mcgill.a11y.image.renderer.SimpleAudio", "ca.mcgill.a11y.image.renderer.SegmentAudio" ]
     jsoninput["preprocessors"] = {}
     preserver = server + "/preprocess"
-    handlerserver = server + "/handler"
+    
     
     preprocessor_output = requests.post(url=preserver, json = jsoninput)
    
     
     jsondict["preprocessors"] = (json.loads(preprocessor_output.text))["preprocessors"]
-  #  jsoninput["preprocessors"] = jsondict["preprocessors"]
+    jsoninput["preprocessors"] = jsondict["preprocessors"]
     
 
-   # handler_output = requests.post(url = handlerserver, json = jsoninput)
-  #  print(handler_output.text)
+    handler_output = requests.post(url = server, json = jsoninput)
+   
+        
 
     h = os.path.join(path, file_name)
 
-    jsondict["handlers"] = ""
+    jsondict["handlers"] = json.loads(handler_output.text)["renderings"]
 
 
     j = json.dumps(jsondict, indent=2, ensure_ascii=False)
