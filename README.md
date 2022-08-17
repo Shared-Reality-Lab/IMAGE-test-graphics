@@ -29,6 +29,11 @@ Compares preprocessor output for any two JSON files.
 
 ` ./testdiff.py -t 08_06_2022_00_00_00 08_07_2022_00_00_00 -n 35 `
 
+
+**to compare the grouping, sorting, and semantic segmentation output from August 6 2022 at midnight and August 7 2022 at midnight for graphic 35:**
+
+` ./testdiff.py -t 08_06_2022_00_00_00 08_07_2022_00_00_00 -n 35 --preprocessor grouping sorting semanticSegmentation`
+
 -d flag on testset.py will run a testdiff on the JSON that was just created and the next most recent JSON that was created for the graphic(s) (if it exists)
 
 ## azure.sh:
