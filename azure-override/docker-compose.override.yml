@@ -4,7 +4,7 @@ services:
 
   object-detection:
     container_name: atp-object-detection-azure
-    image: object-detection-azure:latest
+    image: ghcr.io/shared-reality-lab/image-preprocessor-object-detection-azure:unstable
     env_file:
       - ./auditory-haptic-graphics-server/config/azure-api.env
 
