@@ -27,6 +27,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-n", type=int, nargs=1, help ="-t followed by two time stamps (m_d_Y_H_M_S)")
 parser.add_argument("-t", required=True, nargs=2, help = "(optional) -n followed by the integer number of the directory where the graphic is stored. If not provided, then compares all graphics that have the 2 time stamps")
 parser.add_argument("--preprocessor", nargs = '+', help = "followed by a list of the preprocessors for which we want to see the diffs, everything else will be excluded")
+parser.add_argument("--od", nargs=2)
 
 args = parser.parse_args()
 
@@ -97,25 +98,57 @@ for file1 in file_name:
   #  pre2 = json.loads(((data1["preprocessors"]).replace("contentCategoriser\"", "contentCategoriser"))[:-1])
     pre1 = data0["preprocessors"]
     pre2 = data1["preprocessors"]
-    if not args.preprocessor:
-        for key in pre1:
-            if not pre1[key] == pre2[key]:
-                print(key)
-                print(pre1[key])
-                print(key)
-                print(pre2[key])
-                changes = True
-    else:
-        for key in toparse:
-            if key not in pre1:
-                print(key + " not a preprocessor")
-            else:    
+    if not args.od:
+        if not args.preprocessor:
+            for key in pre1:
                 if not pre1[key] == pre2[key]:
                     print(key)
                     print(pre1[key])
                     print(key)
                     print(pre2[key])
                     changes = True
+        else:
+            for key in toparse:
+                if key not in pre1:
+                    print(key + " not a preprocessor")
+                else:    
+                    if not pre1[key] == pre2[key]:
+                        print(key)
+                        print(pre1[key])
+                        print(key)
+                        print(pre2[key])
+                        changes = True
+    else:
+        print(args.od[0])
+        
+        
+        odlist = ((pre1["ca.mcgill.a11y.image.preprocessor.objectDetection"]))["objects"]
+        lista=[]
+        dicta = {}
+
+        for dict in odlist:
+            lista.append(dict["type"])
+            if dict["type"] in dicta:
+                dicta[dict["type"]] = dicta[dict["type"]] + 1
+            else:
+                dicta[dict["type"]] = 1
+        #print(lista)
+        print(dicta)
+        
+        print(args.od[1])
+        odlist = ((pre2["ca.mcgill.a11y.image.preprocessor.objectDetection"]))["objects"]
+        listb=[]
+        dictb={}
+        for dict in odlist:
+            listb.append(dict["type"])
+            if dict["type"] in dictb:
+                dictb[dict["type"]] = dictb[dict["type"]] + 1
+            else:
+                dictb[dict["type"]] = 1
+        #print(listb)
+        print(dictb)
+
+
 
 
 if changes:
