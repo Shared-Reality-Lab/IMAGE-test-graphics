@@ -40,4 +40,4 @@ wc = WordCloud(background_color="white",width=1000,height=1000).generate_from_fr
 plt.imshow(wc, interpolation='bilinear')
 plt.axis("off")
 plt.show()
-wc.to_file('wordcloud.png')
+wc.to_file('wordcloud.jpg')
