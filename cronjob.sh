@@ -1,9 +1,9 @@
 #!/bin/bash
 
 cd /home/rianad/test_graphics 
-cd /home/rianad/test_graphics ; echo | date >> /home/rianad/test_graphics/diff.txt
+cd /home/rianad/test_graphics ; echo | date >> /var/docker/atp/testing/diff.txt
 cd /home/rianad/test_graphics ; var=$(./testset.py -t daily -d --daily)
-echo $var >> /home/rianad/test_graphics/diff.txt
+echo $var >> /var/docker/atp/testing/diff.txt
 
 sub="Changes"
 
