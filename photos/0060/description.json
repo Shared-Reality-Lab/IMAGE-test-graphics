@@ -1,0 +1,11 @@
+{
+    "url":"https://images.pexels.com/photos/4427611/pexels-photo-4427611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "image": "politic.webp",
+    "tags": ["indoor", "people"],
+    "testing": "",
+    "regression": false,
+    "license": "pexels",
+    "license_url": "https://www.pexels.com/photo/businesspeople-talking-4427611/",
+    "dimensions": [2248, 1500],
+    "bytes": 212196
+}

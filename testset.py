@@ -83,7 +83,7 @@ if args.t:
         tagspace = tag.split(',')
         for word in tagspace:
             tags_needed.append(word.lower())
-#print(tags_needed)
+
 if args.n:
     graphics = args.n
 #keeps track of regression
@@ -144,11 +144,11 @@ for file in os.listdir("photos"):
             
             if isIncluded:
                 jsons.append(data)
-               # print(filenumber)
+               
 
 
 
-#print(len(jsons))
+
 date_time = datetime.now().strftime("%m_%d_%Y_%H_%M_%S")
 #creating the output json
 for item in jsons:
@@ -168,13 +168,9 @@ for item in jsons:
         jsondict["daily"] = False
     photo = item["image"]
     photoname = os.path.join(path, photo)
-    print (photoname)
     
-   # try:
-      #  im=Image.open(photoname)
-        
- #   except IOError:
-    #   assert False, "not an image file"
+    
+
 
     with open(photoname, "rb") as img_file:
         b64_string = base64.b64encode(img_file.read())

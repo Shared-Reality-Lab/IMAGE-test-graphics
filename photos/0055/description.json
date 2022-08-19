@@ -1,0 +1,11 @@
+{
+    "url":"https://images.pexels.com/photos/2260787/pexels-photo-2260787.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "image": "hockey.jpeg",
+    "tags": ["outdoor", "sports", "hockey"],
+    "testing": "",
+    "regression": false,
+    "license": "pexels",
+    "license_url": "https://www.pexels.com/photo/players-playing-ice-hockey-2260787/",
+    "dimensions": [1000, 1500],
+    "bytes": 249938
+}

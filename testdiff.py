@@ -80,7 +80,7 @@ else:
             file_name.append(f)
     if not file_name:
         assert False, "no directory exists with both time stamps"
-print(file_name)
+
 
 #compares files for each file in the list file_name
 for file1 in file_name:
@@ -102,6 +102,7 @@ for file1 in file_name:
         if not args.preprocessor:
             for key in pre1:
                 if not pre1[key] == pre2[key]:
+                    print(file1)
                     print(key)
                     print(pre1[key])
                     print(key)
@@ -113,6 +114,7 @@ for file1 in file_name:
                     print(key + " not a preprocessor")
                 else:    
                     if not pre1[key] == pre2[key]:
+                        print(file1)
                         print(key)
                         print(pre1[key])
                         print(key)

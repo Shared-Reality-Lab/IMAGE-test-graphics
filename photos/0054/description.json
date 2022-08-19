@@ -1,0 +1,11 @@
+{
+    "url":"https://cdn.pixabay.com/photo/2015/12/31/12/06/autos-1115600_1280.jpg",
+    "image": "parking.jpg",
+    "tags": ["outdoor", "city"],
+    "testing": "",
+    "regression": false,
+    "license": "pixabay",
+    "license_url": "https://pixabay.com/photos/cars-parking-spot-park-traffic-1115600/",
+    "dimensions": [1280,960],
+    "bytes": 310590
+}

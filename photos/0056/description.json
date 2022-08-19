@@ -1,0 +1,11 @@
+{
+    "url":"https://images.unsplash.com/photo-1580748141549-71748dbe0bdc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    "image": "rink.jpg",
+    "tags": ["indoor", "sports", "hockey"],
+    "testing": "",
+    "regression": false,
+    "license": "unsplash",
+    "license_url": "https://unsplash.com/photos/GXQP77GIsIU",
+    "dimensions": [640,960],
+    "bytes": 89599
+}
