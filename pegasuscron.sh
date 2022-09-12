@@ -1,16 +1,15 @@
 #!/bin/bash
 
-cd /home/rianad/test_graphics 
+cd /var/docker/image/IMAGE-test-graphics 
 now=`date +"%m_%d_%Y"`
-cd /home/rianad/test_graphics ; var=$(./testset.py -p -t daily -d --daily)
-
+var=$(./testset.py -s p -t daily -d --daily)
 
 sub="Changes"
 
 if [[ $var == *"$sub"* ]];
 then
     echo "Changes occured"
-    echo $var >> /var/docker/atp/testing/$now.txt
+    echo $var >> /var/docker/image/testing/$now.txt
     
 
 fi
