@@ -42,9 +42,10 @@ Insert two time stamps and then use --od flag to specify which timestamp is whic
 
 -d flag on testset.py will run a testdiff on the JSON that was just created and the next most recent JSON that was created for the graphic(s) (if it exists)
 
-## azure.sh:
+## azure.sh and yolo.sh:
 
 azure.sh switches the docker compose for object detection from YOLO (default) to Azure
+yolo.sh switches back through a restoreunstable
 
 ### example:
 
@@ -54,6 +55,7 @@ azure.sh switches the docker compose for object detection from YOLO (default) to
 ./testset.py -t indoor
 ./azure.sh
 ./testset.py -t indoor -d
+./yolo.sh
 ```
 
 
