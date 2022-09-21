@@ -28,6 +28,7 @@ parser.add_argument("-n", type=int, nargs=1, help ="-t followed by two time stam
 parser.add_argument("-t", required=True, nargs=2, help = "(optional) -n followed by the integer number of the directory where the graphic is stored. If not provided, then compares all graphics that have the 2 time stamps")
 parser.add_argument("--preprocessor", nargs = '+', help = "followed by a list of the preprocessors for which we want to see the diffs, everything else will be excluded")
 parser.add_argument("--od", nargs=2)
+parser.add_argument("-d", action = "store_true", help = "use instead of -t flag, uses 2 most recent timestamps in diirectory")
 
 args = parser.parse_args()
 
@@ -41,15 +42,19 @@ if args.preprocessor:
     
 
 #ensures 2 different time stampes
+if args.t:
+    if args.t[0] == args.t[1]:
+        assert False, "please enter two different time stamps to compare"
+        
+    #keeps track of which files to compare
+    timestamps= args.t
+    outputfiles = []
+    for time in timestamps:
+        outputfiles.append("output_"+time+".json")
 
-if args.t[0] == args.t[1]:
-    assert False, "please enter two different time stamps to compare"
-    
-#keeps track of which files to compare
-timestamps= args.t
-outputfiles = []
-for time in timestamps:
-    outputfiles.append("output_"+time+".json")
+
+
+
 
 file_name=[]
 outputs=["a","b"]
@@ -101,13 +106,22 @@ for file1 in file_name:
     if not args.od:
         if not args.preprocessor:
             for key in pre1:
-                if not pre1[key] == pre2[key]:
-                    print(file1)
-                    print(key)
-                    print(pre1[key])
-                    print(key)
-                    print(pre2[key])
+                if not key in pre2:
+                    print(key + " not in second timestamp")
                     changes = True
+                else:
+                    if not pre1[key] == pre2[key]:
+                        print(file1)
+                        print(key)
+                        print(pre1[key])
+                        print(key)
+                        print(pre2[key])
+                        changes = True
+                for key2 in pre2:
+                    if not key2 in pre1:
+                        print(key2 + " not in first timestamp")
+                        changes = True
+
         else:
             for key in toparse:
                 if key not in pre1:
