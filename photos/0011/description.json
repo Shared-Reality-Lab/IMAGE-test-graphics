@@ -1,7 +1,7 @@
 {
     "url": "https://live.staticflickr.com/7435/12584009675_6b1152a358_b.jpg",
     "image": "disney.jpg",
-    "tags": [ "outdoor", "castle", "scene", "disneyworld" ],
+    "tags": ["ocr", "outdoor", "castle", "scene", "disneyworld" ],
     "testing": "",
     "regression": false,
     "license": "public_domain",

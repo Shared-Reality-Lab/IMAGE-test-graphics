@@ -1,7 +1,7 @@
 {
     "url":"https://cdn.pixabay.com/photo/2012/06/25/15/34/berlin-wall-50727_1280.jpg",
     "image": "wall.jpg",
-    "tags": ["outdoor", "wall", "art"],
+    "tags": ["ocr", "outdoor", "wall", "art"],
     "testing": "",
     "regression": false,
     "license": "pixabay",

@@ -1,7 +1,7 @@
 {
     "url":"https://images.pexels.com/photos/1085517/pexels-photo-1085517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     "image": "selfie.jpeg",
-    "tags": ["outdoor", "woman"],
+    "tags": ["ocr", "outdoor", "woman"],
     "testing": "",
     "regression": false,
     "license": "pexels",

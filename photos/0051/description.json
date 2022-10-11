@@ -1,7 +1,7 @@
 {
     "url":"https://images.pexels.com/photos/3052727/pexels-photo-3052727.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     "image": "poster.jpeg",
-    "tags": ["indoor", "text"],
+    "tags": ["ocr", "indoor", "text"],
     "testing": "",
     "regression": false,
     "license": "pexels",

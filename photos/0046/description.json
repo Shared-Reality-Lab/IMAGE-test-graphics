@@ -1,7 +1,7 @@
 {
     "url":"https://live.staticflickr.com/65535/51958746138_c7cf87237b_z.jpg",
     "image": "boris.jpg",
-    "tags": ["public_figure"],
+    "tags": ["ocr", "public_figure"],
     "testing": "",
     "regression": false,
     "license": "public_domain",

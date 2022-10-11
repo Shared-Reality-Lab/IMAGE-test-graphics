@@ -1,7 +1,7 @@
 {
     "url":"https://live.staticflickr.com/852/42838308284_7c4cf03bf8.jpg",
     "image": "aoc.jpg",
-    "tags": ["public_figures", "politicians"],
+    "tags": ["ocr", "public_figures", "politicians"],
     "testing": "",
     "regression": false,
     "license": "public_domain",
