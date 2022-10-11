@@ -1,0 +1,11 @@
+{
+	"url":"https://images.pexels.com/photos/1738641/pexels-photo-1738641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+	"image": "chip.jpeg",
+	"tags": ["ocr", "chip", "product"],
+	"testing": "",
+	"regression": false,
+	"license": "pexels",
+	"license_url": "https://www.pexels.com/license/",
+	"dimensions": [500,750],
+	"bytes": 18506
+}

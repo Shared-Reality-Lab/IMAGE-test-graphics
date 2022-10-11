@@ -1,0 +1,11 @@
+{
+	"url":"https://images.pexels.com/photos/776119/pexels-photo-776119.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+	"image": "stand.jpeg",
+	"tags": ["ocr", "stand", "outdoor"],
+	"testing": "",
+	"regression": false,
+	"license": "pexels",
+	"license_url": "https://www.pexels.com/license/",
+	"dimensions": [1260,711],
+	"bytes": 188856
+}

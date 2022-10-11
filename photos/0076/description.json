@@ -1,0 +1,11 @@
+{
+	"url":"https://images.pexels.com/photos/2861656/pexels-photo-2861656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+	"image": "mall.jpeg",
+	"tags": ["ocr", "mall", "indoor"],
+	"testing": "",
+	"regression": false,
+	"license": "pexels",
+	"license_url": "https://www.pexels.com/license/",
+	"dimensions": [1260,709],
+	"bytes": 153983
+}

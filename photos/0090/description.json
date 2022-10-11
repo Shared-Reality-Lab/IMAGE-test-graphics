@@ -1,0 +1,11 @@
+{
+	"url":"https://images.pexels.com/photos/4004418/pexels-photo-4004418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+	"image": "pizza.jpeg",
+	"tags": ["ocr", "boardgame", "pizza"],
+	"testing": "",
+	"regression": false,
+	"license": "pexels",
+	"license_url": "https://www.pexels.com/license/",
+	"dimensions": [1125,750],
+	"bytes": 133964
+}

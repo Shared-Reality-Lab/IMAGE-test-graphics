@@ -1,0 +1,11 @@
+{
+	"url":"https://images.unsplash.com/photo-1615403916271-e2dbc8cf3bf4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+	"image": "newspapers.jpeg",
+	"tags": ["ocr", "newspaper", "outdoor"],
+	"testing": "",
+	"regression": false,
+	"license": "unsplash",
+	"license_url": "https://unsplash.com/es/licencia",
+	"dimensions": [774,1161],
+	"bytes": 211329
+}

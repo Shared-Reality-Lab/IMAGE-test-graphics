@@ -1,0 +1,11 @@
+{
+	"url":"https://images.pexels.com/photos/3184170/pexels-photo-3184170.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+	"image": "laptop.jpeg",
+	"tags": ["ocr", "laptop", "screen"],
+	"testing": "",
+	"regression": false,
+	"license": "pexels",
+	"license_url": "https://www.pexels.com/license/",
+	"dimensions": [1125,750],
+	"bytes": 84262
+}

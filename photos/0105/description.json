@@ -1,0 +1,11 @@
+{
+	"url":"https://images.pexels.com/photos/7262983/pexels-photo-7262983.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+	"image": "ingredients.jpeg",
+	"tags": ["ocr", "pantry", "indoor", "shelfs"],
+	"testing": "",
+	"regression": false,
+	"license": "pexels",
+	"license_url": "https://www.pexels.com/license/",
+	"dimensions": [1125,750],
+	"bytes": 141590
+}

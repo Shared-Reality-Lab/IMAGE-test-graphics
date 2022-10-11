@@ -1,0 +1,11 @@
+{
+	"url":"https://images.pexels.com/photos/3137890/pexels-photo-3137890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+	"image": "movies.jpeg",
+	"tags": ["ocr", "poster", "cinema", "indoor"],
+	"testing": "",
+	"regression": false,
+	"license": "pexels",
+	"license_url": "https://www.pexels.com/license/",
+	"dimensions": [1125,750],
+	"bytes": 63632
+}

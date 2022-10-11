@@ -1,0 +1,11 @@
+{
+	"url":"https://images.pexels.com/photos/3270222/pexels-photo-3270222.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+	"image": "candle.jpeg",
+	"tags": ["ocr", "candle", "product"],
+	"testing": "",
+	"regression": false,
+	"license": "pexels",
+	"license_url": "https://www.pexels.com/license/",
+	"dimensions": [500,750],
+	"bytes": 27188
+}

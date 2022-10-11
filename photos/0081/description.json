@@ -1,0 +1,11 @@
+{
+	"url":"https://images.pexels.com/photos/694740/pexels-photo-694740.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+	"image": "bookcollection.jpeg",
+	"tags": ["ocr", "book", "cover", "indoor"],
+	"testing": "",
+	"regression": false,
+	"license": "pexels",
+	"license_url": "https://www.pexels.com/license/",
+	"dimensions": [1250,750],
+	"bytes": 126259
+}

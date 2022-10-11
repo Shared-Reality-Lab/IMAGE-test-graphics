@@ -1,0 +1,11 @@
+{
+	"url":"https://images.pexels.com/photos/1208783/pexels-photo-1208783.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+	"image": "colorst.jpeg",
+	"tags": ["ocr", "color", "street", "wall", "outdoor"],
+	"testing": "",
+	"regression": false,
+	"license": "pexels",
+	"license_url": "https://www.pexels.com/license/",
+	"dimensions": [500,750],
+	"bytes": 79001
+}

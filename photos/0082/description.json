@@ -1,0 +1,11 @@
+{
+	"url":"https://images.pexels.com/photos/5905456/pexels-photo-5905456.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+	"image": "teacher.jpeg",
+	"tags": ["ocr", "whiteboard", "person", "indoor"],
+	"testing": "",
+	"regression": false,
+	"license": "pexels",
+	"license_url": "https://www.pexels.com/license/",
+	"dimensions": [1125,750],
+	"bytes": 69542
+}

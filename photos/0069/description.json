@@ -1,0 +1,11 @@
+{
+	"url":"https://images.unsplash.com/photo-1604677657588-44d27f2c7028?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=853&q=80",
+	"image": "road.jpeg",
+	"tags": ["ocr", "outdoor", "sign"],
+	"testing": "",
+	"regression": false,
+	"license": "unsplash",
+	"license_url": "https://unsplash.com/es/licencia",
+	"dimensions": [853,580],
+	"bytes": 77813
+}
