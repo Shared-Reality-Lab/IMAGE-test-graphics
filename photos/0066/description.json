@@ -1,0 +1,11 @@
+{
+    "url":"https://images.pexels.com/photos/264279/pexels-photo-264279.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "image": "stad.jpeg",
+    "tags": ["outdoor", "stadium", "crowd"],
+    "testing": "",
+    "regression": false,
+    "license": "pexels",
+    "license_url": "https://www.pexels.com/photo/aerial-view-of-baseball-field-264279/",
+    "dimensions": [2250,1500],
+    "bytes": 720321
+}
