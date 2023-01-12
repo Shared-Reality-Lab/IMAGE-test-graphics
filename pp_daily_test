@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+source .env
+now=`date +"%m_%d_%Y"`
+cd /var/docker/image/testing/IMAGE-test-graphics ; var=$(./testset.py -t daily -d --daily -s u)
+
+
+sub="Changes"
+
+if [[ $var == *"$sub"* ]];
+then
+    echo "Changes occured"
+    echo $var >> /var/docker/image/testing/diffs/$now.txt
+    curl -X POST -H 'Content-type: application/json' --data '{"text":"unicorn: preprocessor output changed during automated testing."}' https://hooks.slack.com/services/$SLACK_KEY
+
+
+fi
+
+
