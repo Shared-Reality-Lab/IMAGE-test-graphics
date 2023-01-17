@@ -38,6 +38,7 @@ import re
 # parsing through arguments
 
 
+
 parser = argparse.ArgumentParser()
 
 parser.add_argument("-n", type=int, nargs='+', help = "the directory number of the graphic(s) (eg. 6, 0006, 06, etc) space seperated list")
@@ -50,6 +51,11 @@ parser.add_argument("-r", help = "boolean of whether graphics is identified as r
 parser.add_argument("--daily", action = "store_true", help = "include for daily tests that are run through cron job")
 
 args = parser.parse_args()
+if args.n:
+    for p in args.n:
+        if str(p).zfill(4) not in os.listdir('photos'):
+            print(str(p).zfill(4) + " number graphic does not exist")
+            sys.exit(1)
 
 #default filters
 max_bytes = -1
@@ -96,7 +102,8 @@ if args.r:
         regression = False
         regressionpreference = True
     else:
-        assert False, "invalid regression"
+        print("invalid regression")
+        sys.exit(4)
 
 #assigning min and max size in bytes
 if args.min_bytes:
@@ -195,10 +202,16 @@ for item in jsons:
     
     
     preprocessor_output = requests.post(url=preserver, json = jsoninput)
-   
+
+    if (preprocessor_output.status_code != 200):
+        print("error with request to server")
+        sys.exit(2)
     
     jsondict["preprocessors"] = (json.loads(preprocessor_output.text))["preprocessors"]
     jsoninput["preprocessors"] = jsondict["preprocessors"]
+    if len(jsondict["preprocessors"]) < 3:
+        print("error with IMAGE request")
+        sys.exit(3)
     
 
     handler_output = requests.post(url = server, json = jsoninput)

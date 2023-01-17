@@ -44,7 +44,8 @@ if args.preprocessor:
 #ensures 2 different time stampes
 if args.t:
     if args.t[0] == args.t[1]:
-        assert False, "please enter two different time stamps to compare"
+        print("please enter two different time stamps to compare")
+        sys.exit(1)
         
     #keeps track of which files to compare
     timestamps= args.t
@@ -64,13 +65,15 @@ if args.n:
     f = os.path.join("photos", file)
     file_name.append(f)
     if not os.path.exists(f):
-        assert False, "directory not found"
+        print("directory not found")
+        sys.exit(2)
    
     outputs[0]=os.path.join(f,outputfiles[0])
         
     outputs[1]=os.path.join(f,outputfiles[1])
     if not (os.path.isfile(outputs[0]) and os.path.isfile(outputs[1])):
-        assert False, "both timestamps do not exist in the directory"
+        print("both timestamps do not exist in the directory")
+        sys.exit(3)
 
 
 else:
@@ -84,7 +87,8 @@ else:
         if (os.path.isfile(outputs[0]) and os.path.isfile(outputs[1])):
             file_name.append(f)
     if not file_name:
-        assert False, "no directory exists with both time stamps"
+        print( "no directory exists with both time stamps")
+        sys.exit(4)
 
 
 #compares files for each file in the list file_name
@@ -111,16 +115,14 @@ for file1 in file_name:
                     changes = True
                 else:
                     if not pre1[key] == pre2[key]:
-                        print(file1)
+                        
                         print(key)
-                        print(pre1[key])
-                        print(key)
-                        print(pre2[key])
+                        
                         changes = True
-                for key2 in pre2:
-                    if not key2 in pre1:
-                        print(key2 + " not in first timestamp")
-                        changes = True
+            for key2 in pre2:
+                if not key2 in pre1:
+                    print(key2 + " not in first timestamp")
+                    changes = True
 
         else:
             for key in toparse:
@@ -128,11 +130,9 @@ for file1 in file_name:
                     print(key + " not a preprocessor")
                 else:    
                     if not pre1[key] == pre2[key]:
-                        print(file1)
+                       
                         print(key)
-                        print(pre1[key])
-                        print(key)
-                        print(pre2[key])
+                       
                         changes = True
     else:
         print(args.od[0])
