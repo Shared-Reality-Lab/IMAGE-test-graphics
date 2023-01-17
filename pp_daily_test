@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-source .env
+source /var/docker/image/bin/.env
 now=`date +"%m_%d_%Y"`
 cd /var/docker/image/testing/IMAGE-test-graphics ; var=$(./testset.py -t daily -d --daily -s u)
 
