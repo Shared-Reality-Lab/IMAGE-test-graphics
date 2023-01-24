@@ -156,7 +156,7 @@ for file in os.listdir("photos"):
 
 
 
-date_time = datetime.now().strftime("%m_%d_%Y_%H_%M_%S")
+date_time = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
 #creating the output json
 for item in jsons:
     path = item["path"]
@@ -242,6 +242,7 @@ for item in jsons:
 
     for q in onlyfiles:
         if args.daily:
+            print(q)
             h = item["path"] + "/" + q
             
             hpath = pathlib.Path(h)

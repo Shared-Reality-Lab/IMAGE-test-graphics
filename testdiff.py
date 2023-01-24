@@ -115,7 +115,7 @@ for file1 in file_name:
                     changes = True
                 else:
                     if not pre1[key] == pre2[key]:
-                        
+                        print(file1)
                         print(key)
                         
                         changes = True
