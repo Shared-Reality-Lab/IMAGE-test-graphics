@@ -2,7 +2,7 @@
 cd /var/docker/image/bin/
 source .env
 now=`date +"%m_%d_%Y"`
-cd /var/docker/image/testing/IMAGE-test-graphics ; var=$(./testset.py -t daily -d --daily -s u)
+cd /var/docker/image/testing/IMAGE-test-graphics ; var=$(./testset.py -t daily -d --daily -s $(hostname))
 
 
 sub="Changes"
