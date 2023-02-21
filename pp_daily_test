@@ -2,7 +2,8 @@
 cd /var/docker/image/bin/
 source .env
 now=`date +"%m_%d_%Y"`
-cd /var/docker/image/testing/IMAGE-test-graphics ; var=$(./testset.py -t daily -d --daily -s $(hostname))
+host=$(hostname)
+cd /var/docker/image/testing/IMAGE-test-graphics ; var=$(./testset.py -t daily -d --daily -s "$host")
 
 
 sub="Changes"
@@ -11,9 +12,6 @@ if [[ $var == *"$sub"* ]];
 then
     echo "Changes occured"
     echo $var >> /var/docker/image/testing/diffs/$now.txt
-    curl -X POST -H 'Content-type: application/json' --data '{"text":"unicorn: preprocessor output changed during automated testing."}' https://hooks.slack.com/services/$SLACK_KEY
-
-
+    #https://stackoverflow.com/questions/17029902/using-curl-post-with-variables-defined-in-bash-script-functions
+    curl -X POST -H 'Content-type: application/json' --data '{"text":"'"$host"': preprocessor output changed during automated testing."}' https://hooks.slack.com/services/$SLACK_KEY
 fi
-
-
