@@ -11,7 +11,7 @@ sub="Changes"
 if [[ $var == *"$sub"* ]];
 then
     echo "Changes occured"
-    echo $var >> /var/docker/image/testing/diffs/$now.txt
+    
     #https://stackoverflow.com/questions/17029902/using-curl-post-with-variables-defined-in-bash-script-functions
     curl -X POST -H 'Content-type: application/json' --data '{"text":"'"$host"': preprocessor output changed during automated testing."}' https://hooks.slack.com/services/$SLACK_KEY
 fi

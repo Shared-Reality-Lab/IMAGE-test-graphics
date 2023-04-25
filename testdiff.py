@@ -8,6 +8,8 @@ import argparse
 from datetime import datetime
 import requests
 import difflib
+from deepdiff import DeepDiff
+import re
 
 #identifies differences for graphics for 2 different time stamps
 # -n specifies the number of the directory
@@ -15,6 +17,8 @@ import difflib
 # -t followed by 2 time stamps
 # --preprocessor followed by the names of the preprocessors to compare. if not specified, compares all preprocessors.
 # if -t arguments aren't present, it returns an error
+# if -d flag, use for testing and save a file
+# -- list flag just lists the preprocessors that changed instead of the changes followed by the number of changes
 
 #changes boolean keeps track of if there has been a change
 
@@ -28,7 +32,9 @@ parser.add_argument("-n", type=int, nargs=1, help ="-t followed by two time stam
 parser.add_argument("-t", required=True, nargs=2, help = "(optional) -n followed by the integer number of the directory where the graphic is stored. If not provided, then compares all graphics that have the 2 time stamps")
 parser.add_argument("--preprocessor", nargs = '+', help = "followed by a list of the preprocessors for which we want to see the diffs, everything else will be excluded")
 parser.add_argument("--od", nargs=2)
-parser.add_argument("-d", action = "store_true", help = "use instead of -t flag, uses 2 most recent timestamps in diirectory")
+parser.add_argument("-d", action = "store_true", help = "use instead of -t flag, uses 2 most recent timestamps in directory")
+parser.add_argument("--list", action="store_true", help = "followed by a list of the preprocessors for which we want to see the diffs, everything else will be excluded")
+
 
 args = parser.parse_args()
 
@@ -52,10 +58,6 @@ if args.t:
     outputfiles = []
     for time in timestamps:
         outputfiles.append("output_"+time+".json")
-
-
-
-
 
 file_name=[]
 outputs=["a","b"]
@@ -90,7 +92,7 @@ else:
         print( "no directory exists with both time stamps")
         sys.exit(4)
 
-
+finalfile = {}
 #compares files for each file in the list file_name
 for file1 in file_name:
     preprocessors = {}
@@ -103,69 +105,55 @@ for file1 in file_name:
     data0.pop("time")
     data1.pop("time")
 
-  #  pre1 = json.loads(((data0["preprocessors"]).replace("contentCategoriser\"", "contentCategoriser"))[:-1])
-  #  pre2 = json.loads(((data1["preprocessors"]).replace("contentCategoriser\"", "contentCategoriser"))[:-1])
     pre1 = data0["preprocessors"]
     pre2 = data1["preprocessors"]
-    if not args.od:
-        if not args.preprocessor:
-            for key in pre1:
-                if not key in pre2:
-                    print(key + " not in second timestamp")
-                    changes = True
-                else:
-                    if not pre1[key] == pre2[key]:
-                        print(file1)
-                        print(key)
-                        
-                        changes = True
-            for key2 in pre2:
-                if not key2 in pre1:
-                    print(key2 + " not in first timestamp")
-                    changes = True
+    dicttofile = {}
+    if args.preprocessor:
+        for preprocessor in toparse:
+            x = (DeepDiff(pre1[preprocessor], pre2[preprocessor]))
+            if "values_changed" in x:
+                changes = True
+                j = x["values_changed"]
+                for a in j:
+                    dicttofile[a] = j[a]
+       
 
-        else:
-            for key in toparse:
-                if key not in pre1:
-                    print(key + " not a preprocessor")
-                else:    
-                    if not pre1[key] == pre2[key]:
-                       
-                        print(key)
-                       
-                        changes = True
     else:
-        print(args.od[0])
-        
-        
-        odlist = ((pre1["ca.mcgill.a11y.image.preprocessor.objectDetection"]))["objects"]
-        lista=[]
-        dicta = {}
+        x = (DeepDiff(data0["preprocessors"], data1["preprocessors"]))
+        if "values_changed" in x:
+            
+            j = x["values_changed"]
+            changes = True
+            for a in j:
+                if args.list:
+                    pattern = r"\['(.*?)'\]"
+                    # Find all matches of the pattern in the input string
+                    matches = re.findall(pattern, a)
+                    # The preprocessor name is the first match
+                    preprocessor_name = matches[0]
+                    
+                    if preprocessor_name in dicttofile:
+                        dicttofile[preprocessor_name] = dicttofile[preprocessor_name] + 1
+                    else:
+                        dicttofile[preprocessor_name] = 1
+                else:
+                    dicttofile[a] = j[a]
 
-        for dict in odlist:
-            lista.append(dict["type"])
-            if dict["type"] in dicta:
-                dicta[dict["type"]] = dicta[dict["type"]] + 1
-            else:
-                dicta[dict["type"]] = 1
-        #print(lista)
-        print(dicta)
-        
-        print(args.od[1])
-        odlist = ((pre2["ca.mcgill.a11y.image.preprocessor.objectDetection"]))["objects"]
-        listb=[]
-        dictb={}
-        for dict in odlist:
-            listb.append(dict["type"])
-            if dict["type"] in dictb:
-                dictb[dict["type"]] = dictb[dict["type"]] + 1
-            else:
-                dictb[dict["type"]] = 1
-        #print(listb)
-        print(dictb)
+    if changes:
+        print(file1)
+        for thing in dicttofile:
+            print(thing)
+            print(dicttofile[thing])    
+    finalfile[file1] = dicttofile
+datepath = "/var/docker/image/testing/diffs/"
+now = datetime.now()
+current_time = now.strftime("%Y_%m_%d_%H_%M_%S")
 
-
-
+datepath = datepath + current_time + ".txt"
+if args.d:
+    with open(datepath, 'w') as json_file:
+    # Write the dictionary to the file in JSON format
+        json.dump(finalfile, json_file)
 
 if changes:
     print("Changes occured")
