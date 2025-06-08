@@ -58,5 +58,65 @@ yolo.sh switches back through a restoreunstable
 ./yolo.sh
 ```
 
+## llm-caption-test.py
+
+Automated testing script for evaluating multimodal LLM descriptions of images from the IMAGE-test-graphics repository.
+
+### Requirements
+
+- Python 3.7+
+- Ollama running locally (`ollama serve`)
+- Internet connection (for GitHub API access)
+
+### Installation
+
+```bash
+pip install requests pandas pillow
+```
+
+### Usage
+
+```bash
+python llm-caption-test.py
+```
+
+### Configuration
+
+### Models
+Edit the `MODELS` list in the script with model names and temperature settings:
+```python
+MODELS = [
+    ("gemma3:12b", 0.0),
+    ("gemma3:12b", 1.0),          
+    ("llama3.2-vision:latest", 0.0),
+    ("llama3.2-vision:latest", 1.0)
+]
+```
+
+### Other Parameters
+- **Prompt**: `PROMPT` parameter is applied to all models
+- **Image size**: Modify `max_size` in `image_to_base64()` (default: 2048x2048)
+- **API endpoint**: Update `url` in `run_ollama_model()` if not using localhost:11434
+- **Image formats**: Add to `IMAGE_EXTENSIONS` set for other formats
+
+### Output Files
+
+1. **llm_test_results.csv** - Main results with columns:
+   - `folder`: Folder number (0000-0067)
+   - `filename`: Original image filename
+   - `image`: HTML-embedded thumbnail
+   - Model description columns (e.g., "llama3.2-vision:latest (t=0.0)")
+
+2. **llm_test_results.html** - Formatted HTML view with embedded images
+
+3. **intermediate_results.csv** - Auto-saved every 5 images (backup)
+
+### Notes
+
+- Processes 68 folders (0000-0067) from Shared-Reality-Lab/IMAGE-test-graphics
+- Images are resized to max 2048x2048
+- 1-second delay between model calls to avoid overload
+- Handles various image formats (JPG, JPEG, PNG, GIF, BMP, WEBP)
+- Error handling for missing images or API failures
 
 
